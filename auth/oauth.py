@@ -150,8 +150,8 @@ class RedisStorage(StorageBackend):
 
 def setup_google_auth(
     config: Dict[str, Any],
-    use_redis: bool = False,
-    redis_url: str = "redis://localhost:6379/0"
+    use_redis: bool = os.getenv("USE_REDIS") ,
+    redis_url: str = os.getenv("REDIS_URL")
 ) -> SimpleAuthSecure:
     """
     Initialize Google OAuth with optional Redis support.
