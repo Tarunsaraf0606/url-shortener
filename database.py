@@ -78,7 +78,7 @@ def _create_tables():
     # ========================================================================
     db.create_table("sessions", {
         "id": "serial primary",
-        "user_id": "int not null",
+        "user_id": "str not null",
         "access_token": "str unique not null",
         "refresh_token": "str unique not null",
         "expires_at": "datetime not null",
@@ -96,7 +96,7 @@ def _create_tables():
     # ========================================================================
     db.create_table("urls", {
         "id": "serial primary",
-        "user_id": "int not null",
+        "user_id": "str not null",
         "long_url": "text not null",
         "short_code": "str unique not null",
         "clicks": "int default 0",
@@ -119,7 +119,7 @@ def _create_tables():
     # ========================================================================
     db.create_table("url_clicks", {
         "id": "serial primary",
-        "url_id": "int not null",
+        "url_id": "str not null",
         "clicked_at": "datetime default CURRENT_TIMESTAMP",
         "ip_address": "str",
         "user_agent": "text",
